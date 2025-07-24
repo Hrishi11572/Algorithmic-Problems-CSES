@@ -16,7 +16,7 @@ int rec(int targetSum, vector<int>& Coins){
 
     if(dp[targetSum] != -1) return dp[targetSum]; 
 
-    int minCost = INT_MAX; 
+    int minCost = 1e9; 
     for(auto value : Coins){ // explore all options and decide which one feels better 
         minCost = min(minCost , 1 + rec(targetSum - value, Coins)); 
     }
@@ -37,10 +37,11 @@ int main(){
     dp.assign(targetSum + 1 , -1); 
 
     lli ans = rec(targetSum, Denominations); 
-    if(ans == INT_MIN){
+    if(ans == 1e9){
         cout << -1 << endl; 
     }else{
         cout << ans << endl; 
     }
     return 0;
 }
+
