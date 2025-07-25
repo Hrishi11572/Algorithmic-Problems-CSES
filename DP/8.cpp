@@ -21,9 +21,7 @@ int rec(int level, int prev){
     int ans = 0; 
     if(arr[level] == 0){
         for(int i=prev-1; i<=prev+1; i++){
-            if(abs(i - prev) <= 1){
-                ans = (ans + rec(level+1, i))%MOD; 
-            }
+            ans = (ans + rec(level+1, i))%MOD; 
         }
     }else{
         if(abs(arr[level]-prev) <= 1){
